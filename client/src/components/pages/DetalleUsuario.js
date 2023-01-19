@@ -19,21 +19,19 @@ function DetalleUsuario() {
 
     useEffect(() => {
         async function getUserData() {
-            console.log(userData)
+            
             if (!userData) {
                 const res = await fetch(`/getUser/${id}`)
                 const userDataf = await res.json()
-                console.log(userDataf)
                 setUserData(userDataf)
             }
         }
         getUserData();
-    },[])
+    })
 
     useEffect(() => {
         async function formarInterests() {
             if (userData) {
-                console.log(userData.interests)
                 const interests_ = await JSON.parse(userData.interests)
                 const filteredKeys = Object.keys(interests_).filter(key => interests_[key] === true);
                 setInterests(filteredKeys.join(', '));
@@ -55,7 +53,6 @@ function DetalleUsuario() {
         setShow(true)
     }
     const handleShowResume = async() => {
-        console.log("start llamada")
         setShowResume(true)
         const res = await fetch("/startCall",{
             method:"POST",
@@ -68,8 +65,10 @@ function DetalleUsuario() {
             })
         })
         const callData = await res.json()
-        console.log("calldata",callData.id)
         setCall_id(callData.id)
+    }
+    const handleVisit = async()=>{
+        await fetch(`/resetStrikes/${id}`)
     }
 
     return (<div className="Home">
@@ -83,7 +82,7 @@ function DetalleUsuario() {
             </div>
             <div className="user-functions">
                 <button className="centrado" onClick={handleShow}>REPORTAR</button>
-                <button className="centrado">VISITA</button>
+                <button className="centrado" onClick={handleVisit}>VISITA</button>
                 <a href={`tel:${userData.phone_number}`}onClick={handleShowResume}><button className="centrado" >LLAMAR</button></a>
             </div>
             <div className="detail-group">

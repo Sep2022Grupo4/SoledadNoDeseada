@@ -15,22 +15,17 @@ function NavBarVolunt(props) {
             <div className="btn-NavBar" onClick={(e)=>{navigate("/")}}>
                 <FontAwesomeIcon icon={faHouseUser} />
                 <p className="sub-btn-NavBar">Home</p>
-                <div className="over-btn" id="over-btn-home"></div>
+                <div className="over-btn" id="over-btn-home" style={{visibility:"hidden"}}></div>
             </div>
             <div className="btn-NavBar" onClick={(e)=>{navigate(`/usuariosAsignados`)}}>
                 <FontAwesomeIcon icon={faPeopleGroup} />
                 <p className="sub-btn-NavBar">Usuarios/as</p>
-                <div className="over-btn" id="over-btn-usuarios"></div>
+                <div className="over-btn" id="over-btn-usuarios" style={{visibility:"hidden"}}></div>
             </div>
             <div className="btn-NavBar" onClick={(e)=>{navigate("/talleres")}}>
                 <FontAwesomeIcon icon={faPalette} />
                 <p className="sub-btn-NavBar">Talleres</p>
-                <div className="over-btn" id="over-btn-talleres"></div>
-            </div>
-            <div className="btn-NavBar" onClick={(e)=>{navigate(`/agenda/${user.id}`)}}>
-                <FontAwesomeIcon icon={faCalendar} />
-                <p className="sub-btn-NavBar">Agenda</p>
-                <div className="over-btn" id="over-btn-tareas"></div>
+                <div className="over-btn" id="over-btn-talleres" style={{visibility:"hidden"}}></div>
             </div>
 
     </div></div>)

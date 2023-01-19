@@ -1,6 +1,6 @@
 import { useEffect, useState , useContext} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouseUser, faPeopleGroup, faListCheck, faPalette, faCalendar } from '@fortawesome/free-solid-svg-icons'
+import { faHouseUser, faPeopleGroup, faListCheck, faPalette, faCalendar, faContactBook } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
 import NavBarVolunt from "./NavBarVolunt";
 import UserContext from "../context/UserContext";
@@ -38,28 +38,22 @@ function NavBar() {
             <div className="btn-NavBar">
                 <FontAwesomeIcon icon={faHouseUser} />
                 <p className="sub-btn-NavBar">Home</p>
-                <div className="over-btn" id="over-btn-home"></div>
+                <div className="over-btn" id="over-btn-home" style={{visibility:"hidden"}}></div>
             </div>
         </Link>
         <Link to={"/usuariosAsignados"}>
             <div className="btn-NavBar">
                 <FontAwesomeIcon icon={faPeopleGroup} />
                 <p className="sub-btn-NavBar">Usuarios/as</p>
-                <div className="over-btn" id="over-btn-usuarios"></div>
+                <div className="over-btn" id="over-btn-usuarios" style={{visibility:"hidden"}}></div>
             </div>
         </Link>
-        <Link to={"/talleres"}>
+
+        <Link to={"/reports"}>
             <div className="btn-NavBar">
-                <FontAwesomeIcon icon={faPalette} />
-                <p className="sub-btn-NavBar">Talleres</p>
-                <div className="over-btn" id="over-btn-talleres"></div>
-            </div>
-        </Link>
-        <Link to={"/agenda"}>
-            <div className="btn-NavBar">
-                <FontAwesomeIcon icon={faCalendar} />
-                <p className="sub-btn-NavBar">Agenda</p>
-                <div className="over-btn" id="over-btn-tareas"></div>
+                <FontAwesomeIcon icon={faContactBook} />
+                <p className="sub-btn-NavBar">Reportes</p>
+                <div className="over-btn" id="over-btn-reportes" style={{visibility:"hidden"}}></div>
             </div>
         </Link>
     </div></div>)

@@ -1,5 +1,3 @@
-import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../NavBar";
@@ -14,9 +12,14 @@ import cocina from "../../images/cocina.png"
 
 
 
-function CrearEventos() {
+function Talleres() {
     const navigate = useNavigate()
     const [view, setView] = useState("past")
+
+    useEffect(()=>{
+        var overbtn = document.getElementById("over-btn-talleres")
+        if(overbtn){overbtn.style.visibility="visible"}
+      }) 
 
     useEffect(() => {
         async function rstBold() {
@@ -47,11 +50,7 @@ function CrearEventos() {
     }, [])
 
     return (<div className="Home">
-        <HeadTitle title={"Gestionar eventos"} />
-        <div className="crear-evento" onClick={() => { navigate("/newEvent") }}>
-            <FontAwesomeIcon icon={faCirclePlus} className="btn-plus" />
-            <p>Crear evento</p>
-        </div>
+        <HeadTitle title={"Eventos"} />
         <div className="select-bar">
             <div className="select-date-filter" id="past" onClick={() => setView("past")}><p>Anteriores</p> </div>
             <div className="select-date-filter" id="week" onClick={() => setView("week")}><p> Esta semana</p></div>
@@ -86,7 +85,6 @@ function CrearEventos() {
                     break;
             }
 
-
             if (view === "past" && diffInDays < 0) {
                 let dateString = dateE.toLocaleString()
                 return <CardEvento id={element.id} title={element.name_} date={(dateString)} image={imgMini} key={i} />
@@ -104,4 +102,4 @@ function CrearEventos() {
 }
 
 
-export default CrearEventos;
+export default Talleres;
